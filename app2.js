@@ -1,10 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-const icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", 
-				"fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle",
-				"fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt",
-				"fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]
+
 
 /*
  * Display the cards on the page
@@ -12,31 +9,7 @@ const icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bo
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- 
- 
- const cardsContainer = document.querySelector('.deck');
- let  flipUpCards = [];//The goal is to put card 1 and card 2 in an array and compare them.
- 
- //Create cards -- now container is dynamic instead static like it used to be
- for (let i = 0; i < icons.length; i++) { //counter will create cards based on how many icons we have
- 		const card = document.createElement("div");
- 		card.classList.add("card");
- 		card.innerHTML = '<i class="${icons[i]}"></i>';//template literals 
- 		cardsContainer.appendChild(card);
- 
- 
- //Create Click event
- 
- card.addEventListener("click", function() {
- 		//showing the icons
- 		card.classList.add("open", "show");
- 		console.log("Flip the damn cards already!");
- 		flipUpCards.push(this);
- 		});
- 		
- } //The goal is to put card 1 and card 2 in an array and compare them. 
 
- 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -54,9 +27,11 @@ function shuffle(array) {
 
 
 
-
+function createCard(className) {
 //create list item from iteration
-	
+	var element = document.createElement(tagName[], options[]);
+}
+
 function createTheGameCanvas() { //this should append to the deck class
 
 }
@@ -70,16 +45,64 @@ function gameOver()
  }
  
  //Counter SetUp
+ var count = 5;
+ 
+ fundction resetCounter(bool) {
+ 
+ if(bool ===true) {
+ count++)
+ 
+ }
  
  //If all the cards match
  
-
+ var matchedCards = []; 
+ if(matchedCards.length ===16) {
+ console.log("You won the game! Congratulations!");
+ }
+ 
+ //preventing from clicking match
+ var lastFlipped = null;
+ 
+ function activateCards() {
+ 	document.querySelectorAll('li.card').forEach(function(card) {
+ 		card.addEventListener('click', function() {
+ 			if(lastFlipped) { 
+ 				console.log(lastFlipped, card);
+ 				compareCards(lastFlipped, card)
+ 				}
+ 			else {
+ 			lastFlipped = card;
+ 			 }
+ 			 })
+ 			 })
+ 			 
+ function compareCards(lastFlipped, card) {
+ }
+ 
+ 
  
  //Reset Timer
+ var timer = 0;
+ var timer;
+ var initialClick=false;
  
+ function setTimer() {
+ 	timer = setInterval(function){
+ 		time++;
+ 			console.log(time);
+		 }, 1000); //1000 = 1 second
+ }
  
  //to stop 
+ function clearTimer() {
+ clearInterval(timer);
+ }
  
+ resetBtn.addEventListener('click', function() {
+ 	clearTimer();
+ 	function setTimer();
+ 	})
  	
  	//clicking off the grid. 
  
@@ -96,7 +119,7 @@ function gameOver()
  
  
  /*
- Features: When page starts, reload
+ Features: When page starts reload
 all cards are face down
 when you click on card 1
 	it remains face up
